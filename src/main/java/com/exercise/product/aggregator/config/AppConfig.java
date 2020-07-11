@@ -14,4 +14,6 @@ public class AppConfig {
 
     @Value("${products.host}")
     private String host;
+
+    
 }
