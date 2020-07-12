@@ -20,9 +20,6 @@ public class ProductPricingResource {
     @Autowired
     ProductPricingFacade productPricingFacade;
 
-    @Autowired
-    AppConfig appConfig;
-
     @GetMapping(value = "/{product_id}", produces = "application/json")
     public Mono<ProductPricingModel> getProduct(@PathVariable("product_id") String productId) {
         log.info("Get Product and Price Information {}", productId);
