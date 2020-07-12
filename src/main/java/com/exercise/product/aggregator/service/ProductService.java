@@ -23,9 +23,9 @@ public class ProductService {
 
     private WebClient webClient;
 
+    @Autowired
     public ProductService() {
         this.webClient = WebClient.builder()
-                .baseUrl("http://localhost:8080")
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, "application/json")
                 .build();
     }
@@ -41,7 +41,7 @@ public class ProductService {
     public Mono<ClientResponse> getPricingInformation(String productId) {
         String apiName = "/v1/products/" + productId+"/prices";
         return webClient.get()
-                .uri(apiName)
+                .uri(appConfig.getHost() + apiName)
                 .accept(MediaType.APPLICATION_JSON)
                 .exchange();
     }

@@ -1,5 +1,6 @@
 package com.exercise.product.aggregator.resource;
 
+import com.exercise.product.aggregator.config.AppConfig;
 import com.exercise.product.aggregator.domain.ProductPricingModel;
 import com.exercise.product.aggregator.service.ProductPricingFacade;
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +19,9 @@ public class ProductPricingResource {
 
     @Autowired
     ProductPricingFacade productPricingFacade;
+
+    @Autowired
+    AppConfig appConfig;
 
     @GetMapping(value = "/{product_id}", produces = "application/json")
     public Mono<ProductPricingModel> getProduct(@PathVariable("product_id") String productId) {
