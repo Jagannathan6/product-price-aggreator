@@ -34,7 +34,7 @@ public class ProductPricingResourceTest {
     public void testGetProductPricing() {
         when(productPricingFacade.getProductPricing("abcdefgh")).thenReturn(Mono.just(TestDataUtils.getProductPricingModel()));
         FluxExchangeResult<ProductPricingModel> productResponse = webClient.get()
-                .uri("/v1/product_price/abcdefgh")
+                .uri("/v1/product_prices/abcdefgh")
                 .exchange()
                 .expectStatus().is2xxSuccessful().returnResult(ProductPricingModel.class);
         ProductPricingModel response = productResponse.getResponseBody().blockLast();

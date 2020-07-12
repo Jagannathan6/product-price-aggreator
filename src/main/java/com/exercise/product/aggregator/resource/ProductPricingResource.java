@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
 
 
 @RestController
-@RequestMapping("/v1/product_price")
+@RequestMapping("/v1/product_prices")
 @Slf4j
 public class ProductPricingResource {
 
